@@ -30,4 +30,5 @@ Simulator se pokrece koristenjem make alata iz GNU binutils, pokretanjem all, te
     make
     make simulate
 
-Obratiti paznju da se u svakom zadatku nalaze dva fajla, top.vhd i top_tb.vhd, potrebno je da se fajlovi ovako, jer je tako hard-codirano u Makefile skripti.
+Obratiti paznju da se u svakom zadatku nalaze dva fajla, top.vhd i top_tb.vhd, potrebno je da se fajlovi nazovu ovako,
+jer je tako hard-codirano u Makefile skripti.
