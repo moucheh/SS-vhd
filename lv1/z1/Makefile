@@ -14,7 +14,7 @@ run:
 	ghdl -r $(TESTBENCH) --vcd=top.vcd
 
 clean:
-	rm *.cf *.vcd
+	rm *.cf *.vcd top_tb *.o
 
 simulate:
 	gtkwave top.vcd --rcfile=gtkwave.ini -a vcd_autosave.sav
