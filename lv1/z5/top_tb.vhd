@@ -1,33 +1,43 @@
-library IEEE;
-use IEEE.std_logic_1164.all;
+library ieee;
+  use ieee.std_logic_1164.all;
 
 entity top_tb is
 end entity top_tb;
 
 architecture arctop_tb of top_tb is
-  component top
+
+  component top is
     port (
-      D : in std_logic_vector(1 downto 0);
-      Q : out std_logic_vector(3 downto 0)
+      d : in    std_logic_vector(1 downto 0);
+      q : out   std_logic_vector(3 downto 0)
     );
-  end component;
-  signal D : std_logic_vector(1 downto 0);
-  signal Q : std_logic_vector(3 downto 0);
+  end component top;
+
+  signal d : std_logic_vector(1 downto 0);
+  signal q : std_logic_vector(3 downto 0);
+
 begin
-  UUT : top
-  port map (D => D, Q => Q);
-  process
+
+  uut : component top
+    port map (
+      d => d,
+      q => q
+    );
+
+  tb : process is
   begin
-    D <= "11";
+
+    d <= "11";
     wait for 10 ns;
 
-    D <= "01";
+    d <= "01";
     wait for 10 ns;
 
-    D <= "10";
+    d <= "10";
     wait for 10 ns;
 
     wait;
-  end process;
-  
+
+  end process tb;
+
 end architecture arctop_tb;

@@ -1,45 +1,47 @@
-library IEEE;
-use IEEE.std_logic_1164.all;
+library ieee;
+  use ieee.std_logic_1164.all;
 
 -- 8:3 CODER
 
 entity top is
   port (
-    D : in std_logic_vector(7 downto 0);
-    Q : out std_logic_vector(2 downto 0);
-    EN : in std_logic
+    d  : in    std_logic_vector(7 downto 0);
+    q  : out   std_logic_vector(2 downto 0);
+    en : in    std_logic
   );
 end entity top;
 
 architecture arctop of top is
-  
-begin
-  process (D, EN)
 
+begin
+
+  proc : process (d, en) is
   begin
-    if EN = '1' then
-      if D = "00000001" then
-        Q <= "000";
-      elsif D = "00000010" then
-        Q <= "001";
-      elsif D = "00000100" then
-        Q <= "010";
-      elsif D = "00001000" then
-        Q <= "011";
-      elsif D = "00010000" then
-        Q <= "100";
-      elsif D = "00100000" then
-        Q <= "101";
-      elsif D = "01000000" then
-        Q <= "110";
-      elsif D = "10000000" then
-        Q <= "111";
+
+    if (en = '1') then
+      if (d = "00000001") then
+        q <= "000";
+      elsif (d = "00000010") then
+        q <= "001";
+      elsif (d = "00000100") then
+        q <= "010";
+      elsif (d = "00001000") then
+        q <= "011";
+      elsif (d = "00010000") then
+        q <= "100";
+      elsif (d = "00100000") then
+        q <= "101";
+      elsif (d = "01000000") then
+        q <= "110";
+      elsif (d = "10000000") then
+        q <= "111";
       else
-        Q <= "XXX";
+        q <= "XXX";
       end if;
     else
-      Q <= "XXX";
+      q <= "XXX";
     end if;
-  end process;
-  
+
+  end process proc;
+
 end architecture arctop;

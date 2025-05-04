@@ -1,23 +1,26 @@
 library ieee;
-use ieee.std_logic_1164.all;
+  use ieee.std_logic_1164.all;
 
 entity top is
   port (
-    D0, D1, D2, D3 : in  std_logic := '0';
-    SEL            : in  std_logic_vector (1 downto 0);
-    F              : out std_logic
+    d0  : in    std_logic;
+    d1  : in    std_logic;
+    d2  : in    std_logic;
+    d3  : in    std_logic;
+    sel : in    std_logic_vector(1 downto 0);
+    f   : out   std_logic
   );
 end entity top;
 
 architecture arctop of top is
-  
+
 begin
-  with SEL select
-    F <= D3 when "11",
-         D2 when "10",
-         D1 when "01",
-         D0 when "00",
-         '0' when others;
-  
-  
+
+  with sel select f <=
+    d3 when "11",
+    d2 when "10",
+    d1 when "01",
+    d0 when "00",
+    '0' when others;
+
 end architecture arctop;

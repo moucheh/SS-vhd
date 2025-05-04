@@ -1,17 +1,22 @@
-library IEEE;
-use IEEE.std_logic_1164.all;
+library ieee;
+  use ieee.std_logic_1164.all;
 
 -- F = *(A + B) ex+ CD
 
 entity top is
   port (
-    A, B, C, D : in std_logic;
-    F : out std_logic
+    a : in    std_logic;
+    b : in    std_logic;
+    c : in    std_logic;
+    d : in    std_logic;
+    f : out   std_logic
   );
 end entity top;
 
 architecture arctop of top is
+
 begin
-  F <= (not (A or B)) xor (C and D);
-  
+
+  f <= (not (a or b)) xor (c and d);
+
 end architecture arctop;

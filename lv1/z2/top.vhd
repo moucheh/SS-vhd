@@ -1,22 +1,27 @@
 -- 4:1 MUX
 
-library IEEE;
-use IEEE.std_logic_1164.all;
+library ieee;
+  use ieee.std_logic_1164.all;
 
 entity top is
   port (
-    D0, D1, D2, D3 : in std_logic;
-    SEL : in std_logic_vector(1 downto 0);
-    Y : out std_logic
+    d0  : in    std_logic;
+    d1  : in    std_logic;
+    d2  : in    std_logic;
+    d3  : in    std_logic;
+    sel : in    std_logic_vector(1 downto 0);
+    y   : out   std_logic
   );
 end entity top;
 
 architecture arctop of top is
+
 begin
-  Y <= D3 when (SEL = "11") else
-       D2 when (SEL = "10") else
-       D1 when (SEL = "01") else
-       D0 when (SEL = "00") else
+
+  y <= d3 when (sel = "11") else
+       d2 when (sel = "10") else
+       d1 when (sel = "01") else
+       d0 when (sel = "00") else
        '0';
-  
+
 end architecture arctop;
